@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Homework_React_H4_Phonebook/static/css/main.5739b2be.css",
+    "main.js": "/Homework_React_H4_Phonebook/static/js/main.a00ea9cf.js",
+    "index.html": "/Homework_React_H4_Phonebook/index.html",
+    "main.5739b2be.css.map": "/Homework_React_H4_Phonebook/static/css/main.5739b2be.css.map",
+    "main.a00ea9cf.js.map": "/Homework_React_H4_Phonebook/static/js/main.a00ea9cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5739b2be.css",
+    "static/js/main.a00ea9cf.js"
+  ]
+}
