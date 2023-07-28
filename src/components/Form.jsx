@@ -1,35 +1,60 @@
-import { Component } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import css from './Form.module.css'
-export class Form extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+// export class Form extends Component {
+//   state = {
+//     name: '',
+//     number: '',
+//   };
 
-  onHandleSubmit = event => {
-    event.preventDefault();
-    const { name, number } = this.state;
-    this.props.addContactHandler(name, number);
-    this.setState({
-      name: '',
-      number: '',
-    });
-  };
-  onHandleChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
+//   onHandleSubmit = event => {
+//     event.preventDefault();
+//     const { name, number } = this.state;
+//     this.props.addContactHandler(name, number);
+//     this.setState({
+//       name: '',
+//       number: '',
+//     });
+//   };
+//   onHandleChange = event => {
+//     const { name, value } = event.target;
+//     this.setState({ [name]: value });
+//   };
+export const Form = ({ addContactHandler }) => {
+    const [name, setName] = useState('');
+    const [number, setNumber] = useState('');
+  
+    const onHandleSubmit = e => {
+      e.preventDefault();
+      addContactHandler(name, number);
+      setName('');
+      setNumber('');
+    };
+  
+    const onHandleChange = event => {
+      const { name, value } = event.target;
+  
+      switch (name) {
+        case 'name':
+          setName(value);
+          break;
+        case 'number':
+          setNumber(value);
+          break;
+        default:
+          return;
+      }
+    };
+  
 
-  render() {
-    const { name, number } = this.state;
     return (
-      <form className={css.form} onSubmit={this.onHandleSubmit}>
+      <form className={css.form} onSubmit={onHandleSubmit}>
         <label >
           <h2>Name</h2>
           <input
           value={name}
-          onChange={this.onHandleChange}
+          onChange={onHandleChange}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -41,7 +66,7 @@ export class Form extends Component {
           <h2>Number</h2>
           <input
            value={number}
-           onChange={this.onHandleChange}
+           onChange={onHandleChange}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -53,7 +78,7 @@ export class Form extends Component {
       </form>
     );
   }
-}
+
 
 Form.propTypes = {
     addContactHandler: PropTypes.func.isRequired,
