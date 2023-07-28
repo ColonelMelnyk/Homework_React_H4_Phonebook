@@ -2,25 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import css from './Form.module.css'
-// export class Form extends Component {
-//   state = {
-//     name: '',
-//     number: '',
-//   };
-
-//   onHandleSubmit = event => {
-//     event.preventDefault();
-//     const { name, number } = this.state;
-//     this.props.addContactHandler(name, number);
-//     this.setState({
-//       name: '',
-//       number: '',
-//     });
-//   };
-//   onHandleChange = event => {
-//     const { name, value } = event.target;
-//     this.setState({ [name]: value });
-//   };
 export const Form = ({ addContactHandler }) => {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');

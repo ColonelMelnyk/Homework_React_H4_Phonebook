@@ -72,58 +72,7 @@ export const App = () => {
     const filteredContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
-  // componentDidMount(){
-  //   const contacts = localStorage.getItem('contacts');
-  //   const parsedContacts = JSON.parse(contacts);
-  //   if (parsedContacts){
-  //     this.setState({contacts: parsedContacts});
-  //   }
-  // }
-  // componentDidUpdate(prevProps, prevState){
-  //   const prevContacts = prevState.contacts;
-  //   const currentContacts= this.state.contacts;
-  //   if(prevContacts !== currentContacts){
-  //     localStorage.setItem('contacts', JSON.stringify(currentContacts));
-  //   }
-  // }
-
-  // onHandleFilters = event => {
-  //   this.setState({ filter: event.target.value });
-  // };
-
-  // addContactHandler = (name, number) => {
-  //   const presentContact = this.state.contacts.some(
-  //     contact => contact.name.toLowerCase() === name.toLowerCase()
-  //   );
-
-  //   if (presentContact) {
-  //   return  Notiflix.Notify.failure(`${name} Is already listed!`);
-  //   }
-  //   const addedContact = {
-  //     name: name,
-  //     number: number,
-  //     id: nanoid(),
-  //   };
-
-  //   this.setState(prevState => ({
-  //     contacts: [...prevState.contacts, addedContact],
-  //   }));
-  // };
-
-  //  deleteHandler = id => {
-  //   this.setState(prevState => {
-  //     const newContacts = prevState.contacts.filter(
-  //       contact => contact.id !== id
-  //     );
-  //     return { contacts: newContacts };
-  //   });
-  // };
-
-  // render() {
-  //   const { filter, contacts } = this.state;
-  //   const filteredContacts = contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(filter.toLowerCase())
-  //   );
+  
     return (
       <div className="app">
         <h2 className= {css.app_title}>Phonebook</h2>
@@ -140,5 +89,4 @@ export const App = () => {
         ></DataContacts>
       </div>
     );
-  // }
 }
